@@ -56,7 +56,7 @@ Areas where help is especially useful:
 Fastest repo-local use:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/L-Forster/floaty_agents
 cd floaty-agents
 ./floaty
 ```
@@ -87,7 +87,7 @@ floaty stop
 ## Python Package Install
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/L-Forster/floaty_agents
 cd floaty-agents
 python -m venv .venv
 . .venv/bin/activate
