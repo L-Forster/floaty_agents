@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "floaty-agents"
+version = "0.1.0"
+description = "Portable terminal HUD toggling with optional global hotkey activation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "pynput>=1.7",
+  "psutil>=5.9; sys_platform == 'win32'",
+]
+
+[project.scripts]
+floaty = "floaty_agents.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
