@@ -7,11 +7,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 DEFAULT_OPACITY = 0.55
+DEFAULT_HOTKEY = "<ctrl>+;"
 
 
 @dataclass
 class FloatyConfig:
-    hotkey: str | None = None
+    hotkey: str | None = DEFAULT_HOTKEY
     opacity: float = DEFAULT_OPACITY
 
 
@@ -68,7 +69,7 @@ def load_config() -> FloatyConfig:
 
     opacity = max(0.15, min(opacity, 1.0))
     if not isinstance(hotkey, str) or not hotkey.strip():
-        hotkey = None
+        hotkey = DEFAULT_HOTKEY
 
     return FloatyConfig(hotkey=hotkey, opacity=opacity)
 
@@ -80,6 +81,7 @@ def write_default_config() -> Path:
         path.write_text(
             json.dumps(
                 {
+                    "hotkey": DEFAULT_HOTKEY,
                     "opacity": DEFAULT_OPACITY,
                 },
                 indent=2,

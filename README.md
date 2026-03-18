@@ -12,7 +12,7 @@ HUD-style terminal toggling for coding agents.
 - toggles a HUD-like mode:
   - keep-on-top
   - partial transparency where the OS allows it
-- optionally runs a global hotkey listener
+- runs in the background and toggles on a hotkey
 
 ## Current support
 
@@ -61,6 +61,8 @@ cd floaty-agents
 ./floaty
 ```
 
+That starts the background listener. Press `Ctrl+;` to toggle the focused terminal.
+
 ## Install A User Command
 
 If you want `floaty` to work from anywhere without changing system files:
@@ -79,7 +81,7 @@ Then use:
 
 ```bash
 floaty
-floaty daemon --hotkey '<ctrl>+a'
+floaty stop
 ```
 
 ## Python Package Install
@@ -93,54 +95,23 @@ pip install -e .
 floaty
 ```
 
-To start the hotkey listener:
-
-```bash
-floaty daemon --hotkey '<ctrl>+a'
-```
-
 To start it automatically on login:
 
 ```bash
-floaty autostart install --hotkey '<ctrl>+a'
+floaty autostart install
 ```
 
 Default opacity is `0.55`.
 
-There is no default hotkey.
-
-If you want one, set it explicitly in the command or in your user config file.
-
-To create a user config file:
-
-```bash
-floaty config init
-floaty config show
-```
-
-Config file location:
-
-```text
-Linux: ~/.config/floaty-agents/config.json
-macOS: ~/Library/Application Support/floaty-agents/config.json
-Windows: %APPDATA%\floaty-agents\config.json
-```
-
-Example:
-
-```json
-{
-  "opacity": 0.55
-}
-```
+Default hotkey is `Ctrl+;`.
 
 Examples:
 
 ```bash
-floaty listen --hotkey '<ctrl>+a'
-floaty listen --hotkey '<ctrl>+a'
-floaty listen --hotkey '<ctrl>+backslash'
-floaty --opacity 0.55
+floaty
+floaty stop
+floaty autostart install
+floaty start --hotkey '<ctrl>+backslash'
 ```
 
 ## Repo-local usage
@@ -149,19 +120,16 @@ If you do not want to install the package yet:
 
 ```bash
 ./floaty
-./floaty listen --hotkey '<ctrl>+a'
+./floaty stop
 ```
 
 ## Commands
 
 ```bash
 floaty
-floaty listen --hotkey '<ctrl>+a'
-floaty daemon
-floaty autostart install --hotkey '<ctrl>+a'
-floaty config show
-floaty doctor
-floaty supports
+floaty start
+floaty stop
+floaty autostart install
 ```
 
 ## Detection rules
