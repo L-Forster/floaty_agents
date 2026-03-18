@@ -1,8 +1,7 @@
-# floaty-agents
-
-HUD-style terminal toggling for coding agents.
+## HUD-style terminal toggling for coding agents.
 
 `floaty-agents` is a user-space terminal HUD tool for coding-agent workflows. It is meant to make an active terminal feel more like an overlay on your desktop while an agent is working. It does not require root, does not edit system files, and only changes the currently focused terminal window at runtime.
+<img width="1920" height="1101" alt="image" src="https://github.com/user-attachments/assets/1649f122-f0da-423b-b4e9-9005cd65abcf" />
 
 ## What it does
 
